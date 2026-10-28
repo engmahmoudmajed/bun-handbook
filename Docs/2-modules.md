@@ -33,10 +33,74 @@ export {sum};
 
 ```
 ----
-## another example with multiple functions and files 
+## another example with multiple functions 
+**in branch  module-section-2 we make next file**
+
+```ts
+// index.ts
+import { sum,multiple } from "./calc";
+
+const answer = sum(9,7);
+const answer2 = multiple(3,5);
+
+console.log(`result : ${answer}`);
+console.log(`result : ${answer2}`);
+```
+
+```ts
+// calc.ts
+function sum(num1:number,num2:number):number{
+  return num1 + num2 
+}
+
+function multiple(num1:number,num2:number):number{
+  return num1 * num2
+}
 
 
+export {sum,multiple};
+//import will be import {sum} from sum.ts
+
+// or default for file 
+// export default sum;
+// import will be | import sum from sum.ts
+
+```
+
+----
+## Export default 
+**you can make one export default per file**
 
 
+```ts
+// index.ts
+import sum,{multiple} from "./calc";
+
+const answer = sum(9,7);
+const answer2 = multiple(3,5);
+
+console.log(`result : ${answer}`);
+console.log(`result : ${answer2}`);
+
+```
 
 
+```ts
+// calc.ts
+export default function sum(num1:number,num2:number):number{
+  return num1 + num2 
+}
+
+function multiple(num1:number,num2:number):number{
+  return num1 * num2
+}
+
+
+export {sum,multiple};
+//import will be import {sum} from sum.ts
+
+// or default for file 
+// export default sum;
+// import will be | import sum from sum.ts
+
+```
